@@ -54,5 +54,5 @@ const About = () => {
     </>
   )
 }
-/* comment for commit */
+
 export default About
