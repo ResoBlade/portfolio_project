@@ -5,12 +5,7 @@ import { images } from '../../constants'
 import './About.scss';
 import { urlFor, client } from '../../client';
 
-const abouts = [
-  { title: 'Web Development', description: 'Awesomesauce and stuff', imgUrl: images.about01 },
-  { title: 'Web Design', description: 'Awesomesauce and stuff', imgUrl: images.about02  },
-  { title: 'UI/UX', description: 'Awesomesauce and stuff', imgUrl: images.about03 },
-  { title: 'Animation', description: 'Awesomesauce and stuff', imgUrl: images.about04 }
-]
+
 
 const About = () => {
   const [abouts, setAbouts] = useState([]);
@@ -18,9 +13,7 @@ const About = () => {
   useEffect(() => {
       const query = '*[_type == "abouts"]';
 
-      client.fetch(query).then((data) => {
-          setAbouts(data);
-        });
+      client.fetch(query).then((data) => setAbouts(data));
     
     }, []);
 
@@ -41,7 +34,7 @@ const About = () => {
           key={about.title + index}
           >
             
-          <img src={about.imgUrl} alt={about.title} />
+          <img src={urlFor(about.imgUrl)} alt={about.title} />
           <h2 className="bold-text" style={{ marginTop: 20 }} /* why is this inline? */ >{about.title}</h2>
           <p className="p-text" style={{ marginTop: 10 }} /* why is this inline? */ >{about.description}</p>
           </motion.div>
