@@ -5,7 +5,7 @@ export default{
     fields:[
         {
             name:'imgUrl',
-            title:'ImgUrl',
+            title:'Image',
             type: 'image',
             options: {
               hotspot: true,
